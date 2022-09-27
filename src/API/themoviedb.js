@@ -64,4 +64,33 @@ export default class APIService {
         const response = await this.fetch('/search/movie', params);
         return response;
     }
+
+    static async getGenres() {
+        const response = await this.fetch('/genre/movie/list');
+        return response;
+    }
+
+    static async getMoviesByGenre(genreId) {
+        let params = {
+			with_genres: genreId,
+		};
+        const response = await this.fetch('/discover/movie', params);
+        return response;
+    }
+
+    static async getMoviesByYear(year) {
+        let params = {
+            year
+		};
+        const response = await this.fetch('/discover/movie', params);
+        return response;
+    }
+
+    static async getMoviesSortedBy(sort) {
+        let params = {
+            sort_by: sort
+		};
+        const response = await this.fetch('/discover/movie', params);
+        return response;
+    }
 }

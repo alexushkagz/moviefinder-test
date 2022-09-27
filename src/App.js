@@ -7,7 +7,7 @@ import MovieCard from './components/MovieCard';
 import { useFetching } from './hooks/useFetching';
 import MovieListing from './components/MovieListing';
 import PopularMovies from './components/PopularMovies';
-import MoviesFilter from './components/MoviesFilter';
+import AllMovies from './components/AllMovies';
 
 function App() {
 	const [movies, setMovies] = useState([]);
@@ -27,7 +27,7 @@ function App() {
 			<div className="App">
 				<Header onSearchSubmit={handleSearchSubmit} />
 				<PopularMovies />
-				<MoviesFilter searchResult={movies}/>
+				<AllMovies searchResult={movies}/>
 			</div>
 		</BgWrapper>
 	);

@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import MovieListing from './MovieListing';
 import { useFetching } from '../hooks/useFetching';
 import APIService from '../API/themoviedb';
-import SearchInput from './UI/SearchInput/SearchInput';
-import DatePicker from "react-datepicker";
-import '../styles/react-datepicker.css';
+import MovieFilters from './MovieFilters/MovieFilters';
 
-const MoviesFilter = ({ searchResult }) => {
+const AllMovies = ({ searchResult }) => {
     const [movies, setMovies] = useState([]);
 	const [fetchMovies] = useFetching(async () => {
 		const response = await APIService.getMovies();
@@ -23,18 +21,12 @@ const MoviesFilter = ({ searchResult }) => {
         console.log('Search');
     }
 
-    const [startDate, setStartDate] = useState(new Date());
-
     return (
         <section>
             <h2 className="title">Tous les movies</h2>
-            <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                showYearPicker
-                dateFormat="yyyy"
-                yearItemNumber={9}
-            />
+            
+            <MovieFilters />
+
             <MovieListing movies={
                 searchResult && searchResult.length 
                 ? searchResult
@@ -45,4 +37,4 @@ const MoviesFilter = ({ searchResult }) => {
     )
 }
 
-export default MoviesFilter;
+export default AllMovies;

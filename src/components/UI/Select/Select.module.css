@@ -1,0 +1,36 @@
+.selectWrapper {
+    margin-block-end: 30px;
+}
+
+.label {
+    color: var(--text-color-dark);
+    margin-inline-end: 10px;
+}
+
+.select {
+    /* width: 100%; */
+    padding: 15px 20px;
+    box-sizing: border-box;
+    background-color: var(--background-color-element);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--text-color-dark);
+    border-radius: 14px;
+    outline: none;
+    color: var(--text-color-accent);
+}
+
+/* .select:required:invalid {
+    color: var(--text-color-dark);
+}
+
+option[value=""][disabled] {
+    display: none;
+  }
+
+.placeholder {
+    color: var(--text-color-dark);
+} */
+
+.option {
+    border-radius: 14px;
+}

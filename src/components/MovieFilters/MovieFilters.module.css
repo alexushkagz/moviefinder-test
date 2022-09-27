@@ -1,0 +1,4 @@
+.filtersWrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
