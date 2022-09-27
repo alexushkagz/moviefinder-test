@@ -13,7 +13,12 @@ const Select = (props) => {
     return (
         <div className={classes.selectWrapper}>
             <label className={classes.label} htmlFor={labelId}>{props.label}</label>
-            <select className={classes.select} id={labelId} name={props.name}>
+            <select 
+                className={classes.select} 
+                id={labelId} 
+                name={props.name}
+                onChange={props.onChange}
+            >
                 {insertPlaceholder()}
                 {props.options.map((option, index) => 
                     <option className={classes.option} key={index} value={option.value}>

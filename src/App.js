@@ -10,24 +10,14 @@ import PopularMovies from './components/PopularMovies';
 import AllMovies from './components/AllMovies';
 
 function App() {
-	const [movies, setMovies] = useState([]);
-	const [searchMovies] = useFetching(async (query) => {
-		const response = await APIService.searchMovies(query);
-		setMovies(response.data.results);
-	})
-
-
-	const handleSearchSubmit = (value) => {
-		// console.log(value);
-		searchMovies(value);
-	}
+	const [searchQuery, setSearchQuery] = useState('');
 
 	return (
 		<BgWrapper>
 			<div className="App">
-				<Header onSearchSubmit={handleSearchSubmit} />
+				<Header onSearchSubmit={setSearchQuery} />
 				<PopularMovies />
-				<AllMovies searchResult={movies}/>
+				<AllMovies searchQuery={searchQuery}/>
 			</div>
 		</BgWrapper>
 	);

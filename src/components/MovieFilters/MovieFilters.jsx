@@ -5,8 +5,12 @@ import APIService from '../../API/themoviedb';
 import '../../styles/react-datepicker.css';
 import Select from '../UI/Select/Select';
 
-const MovieFilters = () => {
-    const [startDate, setStartDate] = useState(null);
+const MovieFilters = ({ onChange }) => {
+    const [filters, setFilters] = useState({
+        sortBy: null,
+        genre: null,
+        year: null,
+    })
     const genresList = useRef([]);
     const sortOptions = [
         {value: 'popularity.desc', text: 'Pertinence'},
@@ -24,7 +28,10 @@ const MovieFilters = () => {
         }
         fetchGenres();
     }, [])
-    console.log(genresList.current)
+
+    useEffect(() => {
+        onChange(filters)
+    }, [filters])
 
     return (
         <form className={classes.filtersWrapper}>
@@ -33,18 +40,23 @@ const MovieFilters = () => {
                 label="Trier par :"
                 // placeholder="Choisissez l'option"
                 options={sortOptions}
+                onChange={e => setFilters({...filters, sortBy: e.target.value})}
             />
             <Select
-                name="filter"
+                name="filter_genre"
                 label="Filtrer par :"
                 placeholder="Choisissez le genre"
                 options={genresList.current}
+                onChange={e => setFilters({...filters, genre: e.target.value})}
             />
             <div>
                 <DatePicker
-                    selected={startDate}
+                    selected={ filters.year 
+                        ? new Date(filters.year, 1, 0)
+                        : null
+                    }
                     placeholderText="Année"
-                    onChange={(date) => setStartDate(date)}
+                    onChange={(date) => setFilters({...filters, year: date.getFullYear()})}
                     showYearPicker
                     dateFormat="yyyy"
                     yearItemNumber={9}

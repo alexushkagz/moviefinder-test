@@ -43,10 +43,10 @@ export default class APIService {
         return IMAGES_PATH + movie.poster_path;
     }
 
-    static async getMovies() {
-        const response = await this.fetch('/discover/movie');
-        return response;
-    }
+    // static async getMovies() {
+    //     const response = await this.fetch('/discover/movie');
+    //     return response;
+    // }
 
     static async getPopularMovies() {
         let params = {
@@ -70,26 +70,19 @@ export default class APIService {
         return response;
     }
 
-    static async getMoviesByGenre(genreId) {
-        let params = {
-			with_genres: genreId,
-		};
-        const response = await this.fetch('/discover/movie', params);
-        return response;
-    }
+    static async getMoviesFiltered(filters, page) {
+        // let params = {
+        //     sort_by: filters.sortBy,
+        //     with_genres: filters.genre,
+        //     year: filters.year,
+        //     primary_release_year: filters.year,
+		// };
+        let params = {}
+        if (filters.sortBy) params.sort_by = filters.sortBy;
+        if (filters.genre) params.with_genres = filters.genre;
+        if (filters.year) params.primary_release_year = filters.year;
+        params.page = page;
 
-    static async getMoviesByYear(year) {
-        let params = {
-            year
-		};
-        const response = await this.fetch('/discover/movie', params);
-        return response;
-    }
-
-    static async getMoviesSortedBy(sort) {
-        let params = {
-            sort_by: sort
-		};
         const response = await this.fetch('/discover/movie', params);
         return response;
     }
