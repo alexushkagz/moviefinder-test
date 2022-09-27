@@ -1,0 +1,52 @@
+.App {
+  margin: auto;
+  width: 1000px;
+}
+
+section {
+  margin: 60px 0;
+}
+
+h2.title {
+  /* margin-block-start: 70px; */
+  margin-block-end: 40px;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.card {
+  display: flex;
+  /* display: inline-flex; */
+  flex-direction: column;
+  max-width: 154px;
+}
+
+.card .card__img {
+  margin-block-end: 10px;
+}
+
+.card .card__img img {
+  /* width: 100%; */
+  border-radius: 10px;
+}
+
+.card .card__title {
+  margin-block-end: 5px;
+  font-size: 14px;
+}
+
+.card .card__year {
+  color: var(--text-color-dark);
+}
+
+.listing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-content: space-between; */
+  row-gap: 40px;
+}
+
+.listing .listing__item {
+  flex-basis: 20%;
+}

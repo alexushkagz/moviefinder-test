@@ -1,0 +1,21 @@
+.bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* height: 734px; */
+    height: 70vh;
+    width: 100vw;
+    background-image: url(../../../../assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    mix-blend-mode: luminosity;
+    opacity: .2;
+    z-index: -1;
+  }
+  .bg-gradient {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(172.79deg, rgba(13, 29, 56, 0.0001) 0%, #0D1D38 80.98%);
+    opacity: .2;
+  }

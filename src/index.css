@@ -1,0 +1,19 @@
+:root {
+  --background-color: #0D1D38;
+  --text-color: #FFFFFF;
+  --text-color-dark: #586E94;
+  --text-color-accent: #2586FA;
+  --background-color-element: #253755;
+}
+* {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+
+}
+body {
+  margin: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+}
